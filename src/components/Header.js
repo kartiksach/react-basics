@@ -1,17 +1,18 @@
+//Make components as stateless components if states are not needed!
+
 import React  from 'react';
 
-export class Header extends React.Component {
-    render() {
+export const Header = (props) => {
         return(
             <nav className='navbar'>
                 <div className='container'>
                     <div className='navbar-header'>
                         <ul>
-                            <li><a href='#'>Home</a></li>
+                            <li><a href='#'>{props.homeLink}</a></li>
+                            <li><a href='#'>RESOURCES</a></li>
                         </ul>
                     </div>
                 </div>
             </nav>
         ); 
-    }
-}
+    };

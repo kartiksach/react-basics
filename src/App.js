@@ -6,6 +6,19 @@ import { Home } from './components/Home';
 console.log('Working just fine!');
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      homeLink: 'Home'
+    };
+  }
+
+  changeHomeLink(newName) {
+    this.setState({
+      homeLink: newName
+    });
+  }
+
   render(){
     var user = {
       name: 'Kartik',
@@ -17,12 +30,15 @@ class App extends Component {
       <div className='container'>
         <div className='row'>
           <div className='col'>
-            <Header />
+            <Header homeLink={this.state.homeLink}/>
           </div>
         </div>
         <div className='row'>
           <div className='col'>
-            <Home user={user} />
+            <Home 
+              user={user}
+              changeLink={this.changeHomeLink.bind(this)}
+            />
           </div>
         </div>
       </div>
