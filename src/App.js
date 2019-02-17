@@ -38,6 +38,7 @@ class App extends Component {
             <Home 
               user={user}
               changeLink={this.changeHomeLink.bind(this)}
+              initialLinkName={this.state.homeLink}
             />
           </div>
         </div>

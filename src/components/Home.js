@@ -11,7 +11,7 @@ export class Home extends React.Component {
         this.state = {
             age: props.user.age,
             status: 100,
-            homeLink: 'Link Changed'
+            homeLink: props.initialLinkName
         };
     }
 
@@ -31,6 +31,12 @@ export class Home extends React.Component {
     changeName() {
         this.props.changeLink(this.state.homeLink);
     }
+
+    changeHandler(e) {
+        this.setState({
+            homeLink: e.target.value
+        });
+    }
      
     render() {
         return (
@@ -46,6 +52,12 @@ export class Home extends React.Component {
                     <hr />
                     <button onClick={this.changeStatus.bind(this)}>Change Status</button>
                     <hr />
+                    Enter your new link Name: 
+                    <input 
+                        type='text' 
+                        value={this.state.homeLink}
+                        onChange={(e) => this.changeHandler(e)}
+                    />
                     <button onClick={this.changeName.bind(this)}>Change Home Link!</button>
                 </p>
                 <hr />
